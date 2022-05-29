@@ -15,26 +15,23 @@ print("""
     
 your_choice = int(input('Введите нужный филиал для переключения цифрой выше: '))
 
-spisok_dan = {1: '-1-ЦА--',
-2: '-2-Брест--',
-3: '-3-Пинск--',
-4: '-4-Гродно--',
-5: '-5-Барановичи--',
-6: '-6-Минск1--',
-7: '-7-Минск2--',
-8: '-8-Солигорск--',
-9: '-9-Новополоцк--',
-10: '-10-Гомель--',
-11: '-11-могилёв--',
-12: '-12--Мозырь--',
-13: '-13--Витебск--'
+spisok_dan = {1: '<connect1 isInet="1" server="192.168.29.105" port="1792"/><!--ЦА-->',
+2: '<connect1 isInet="1" server="192.168.29.104" port="1782"/><!--Брест-->',
+3: '<connect1 isInet="1" server="192.168.29.104" port="1789"/><!--Пинск-->',
+4: '<connect1 isInet="1" server="192.168.29.104" port="1780"/><!--Гродно-->',
+5: '<connect1 isInet="1" server="192.168.29.104" port="1786"/><!--Барановичи-->',
+6: '<connect1 isInet="1" server="192.168.29.103" port="1781"/><!--Минск1-->',
+7: '<connect1 isInet="1" server="192.168.29.103" port="1791"/><!--Минск2-->',
+8: '<connect1 isInet="1" server="192.168.29.103" port="1788"/><!--Солигорск-->',
+9: '<connect1 isInet="1" server="192.168.29.103" port="1787"/><!--Новополоцк-->',
+10: '<connect1 isInet="1" server="192.168.29.122" port="1785"/><!--Гомель-->',
+11: '<connect1 isInet="1" server="192.168.29.122" port="1783"/><!--могилёв-->',
+12: '<connect1 isInet="1" server="192.168.29.122" port="1784"/><!--Мозырь-->',
+13: '<connect1 isInet="1" server="192.168.29.122" port="1790"/><!--Витебск-->'
     }
 
 print(spisok_dan[your_choice])
     
-
-# with open("D:\\work\connect.xml", encoding="utf-8") as file:
-
 
 with open("D:\\work\connect.xml", "r", encoding="utf-8") as file1:
 	new_file = ''
@@ -45,9 +42,26 @@ with open("D:\\work\connect.xml", "r", encoding="utf-8") as file1:
 		else:
 			new_file += line
 
+
 with open("D:\\work\connect.xml", "w", encoding="utf-8") as file2:
 	file2.write(new_file)	
-	
+
+12324
+choise = spisok_dan[your_choice]
+print(type(choise))
+with open("D:\\work\connect.xml", "r", encoding="utf-8") as file3:
+	new_file2 = ''
+	for line in file3:
+		if choise in line:
+			new_str = line.replace("connect1","connect")
+			new_file2 += new_str
+			print("я тут был")
+		else:
+			new_file2 += line
+
+with open("D:\\work\connect.xml", "w", encoding="utf-8") as file4:
+	file4.write(new_file2)
+
 
 # with open("D:\\work\connect.xml", "w", encoding="utf-8") as file:	
 # 	for line in x:
