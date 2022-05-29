@@ -59,5 +59,5 @@ with open("D:\\work\connect.xml", "r", encoding="utf-8") as file3:
 with open("D:\\work\connect.xml", "w", encoding="utf-8") as file4:
 	file4.write(new_file2)
 
-print(f'Готово, Переключено на {spisok_dan[your_choice]} работайте)))')
+print(f'Готово, Переключено на {your_choice}, работайте)))')
 exit_program = input('Нажмите Enter для выхода')
