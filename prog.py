@@ -30,13 +30,34 @@ spisok_dan = {1: '-1-ЦА--',
 13: '-13--Витебск--'
     }
 
-print(spisok_dan[3])
+print(spisok_dan[your_choice])
     
 
 # with open("D:\\work\connect.xml", encoding="utf-8") as file:
-with open("D:\\work\connect.xml", "rt") as file:
-	x = file.read()
+
+
+with open("D:\\work\connect.xml", "r", encoding="utf-8") as file1:
+	new_file = ''
+	for line in file1:
+		if 'connect1' not in line:
+			new_str = line.replace("connect","connect1")
+			new_file += new_str
+		else:
+			new_file += line
+
+with open("D:\\work\connect.xml", "w", encoding="utf-8") as file2:
+	file2.write(new_file)	
 	
-with open("D:\\work\connect.xml", "wt") as file:
-    x = x.replace("connect","connect1")
-	fin.write(x)
+
+# with open("D:\\work\connect.xml", "w", encoding="utf-8") as file:	
+# 	for line in x:
+# 		if 'connect' in line:
+# 			new_str = line.replace("connect","connect1")
+# 			file.write(new_str)
+# 		else:
+# 			file.write(line)
+	
+# with open("D:\\work\connect.xml", "wt") as file:
+#     for line in 
+#     x = x.replace("connect","connect1")
+# 	fin.write(x)
