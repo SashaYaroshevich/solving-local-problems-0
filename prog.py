@@ -30,9 +30,7 @@ spisok_dan = {1: '<connect1 isInet="1" server="192.168.29.105" port="1792"/><!--
 13: '<connect1 isInet="1" server="192.168.29.122" port="1790"/><!--Витебск-->'
     }
 
-print(spisok_dan[your_choice])
     
-
 with open("D:\\work\connect.xml", "r", encoding="utf-8") as file1:
 	new_file = ''
 	for line in file1:
@@ -46,32 +44,17 @@ with open("D:\\work\connect.xml", "r", encoding="utf-8") as file1:
 with open("D:\\work\connect.xml", "w", encoding="utf-8") as file2:
 	file2.write(new_file)	
 
-12324
+
 choise = spisok_dan[your_choice]
-print(type(choise))
+
 with open("D:\\work\connect.xml", "r", encoding="utf-8") as file3:
 	new_file2 = ''
 	for line in file3:
 		if choise in line:
 			new_str = line.replace("connect1","connect")
 			new_file2 += new_str
-			print("я тут был")
 		else:
 			new_file2 += line
 
 with open("D:\\work\connect.xml", "w", encoding="utf-8") as file4:
 	file4.write(new_file2)
-
-
-# with open("D:\\work\connect.xml", "w", encoding="utf-8") as file:	
-# 	for line in x:
-# 		if 'connect' in line:
-# 			new_str = line.replace("connect","connect1")
-# 			file.write(new_str)
-# 		else:
-# 			file.write(line)
-	
-# with open("D:\\work\connect.xml", "wt") as file:
-#     for line in 
-#     x = x.replace("connect","connect1")
-# 	fin.write(x)
