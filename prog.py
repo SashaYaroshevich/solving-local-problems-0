@@ -10,9 +10,15 @@ class window:
 		self.root.resizable(resizable[0], resizable[1])
 		if icon:
 			self.root.iconbitmap(icon)
+		
+		self.label = Label(self.root, text="I'm a label", bg="red", font="TimesNewRoman 15")
 	
 	def run(self):
+		self.draw_widgets()
 		self.root.mainloop()
+
+	def draw_widgets(self):
+		self.label.pack()
 
 	def create_child(self, width, height, title="Child", resizable=(False, False), icon=None):
 		ChildWindow(self.root, width, height, title, resizable, icon)
@@ -20,7 +26,7 @@ class window:
 
 if __name__ == "__main__":
 	window = window(500, 500, "Change PS")
-	window.create_child(200, 100)
+	# window.create_child(200, 100)
 
 	
 	window.run()
