@@ -13,6 +13,7 @@ class window:
 		
 		self.label = Label(self.root, text="I'm a label", bg="red", font="TimesNewRoman 15")
 		self.label2 = Label(self.root, text="I'm a label2", bg="blue", font="TimesNewRoman 15")
+		self.button = Button(self.root, text="Press Button")
 	
 	def run(self):
 		self.draw_widgets()
@@ -21,6 +22,7 @@ class window:
 	def draw_widgets(self):
 		self.label.pack()
 		self.label2.pack()
+		self.button.pack()
 
 	def create_child(self, width, height, title="Child", resizable=(False, False), icon=None):
 		ChildWindow(self.root, width, height, title, resizable, icon)
