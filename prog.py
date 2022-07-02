@@ -3,7 +3,7 @@ from child_window import ChildWindow
 
 
 class window:
-	def __init__(self, width, height, title="MyWindow", resizable=(False, False), icon="D:\\work\cer_prog\solving-local-problems-0\psc.ico"):
+	def __init__(self, width, height, title="MyWindow", resizable=(False, False), icon="@/home/sasha/projects/certus/solving-local-problems-0/psc.xbm"):
 		self.root = Tk()
 		self.root.title(title)
 		self.root.geometry(f"{width}x{height}+200+200")
