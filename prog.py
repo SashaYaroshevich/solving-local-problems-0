@@ -13,8 +13,11 @@ class window:
 		
 		self.label = Label(self.root, text="I'm a label", bg="red", font="TimesNewRoman 15")
 		self.label2 = Label(self.root, text="I'm a label2", bg="blue", font="TimesNewRoman 15")
-		self.button = Button(self.root, text="Press Button")
-	
+		self.button = Button(self.root, text="Press Button", command=self.button_action)
+
+	def button_action(self):
+		print("123")
+
 	def run(self):
 		self.draw_widgets()
 		self.root.mainloop()
