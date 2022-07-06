@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 from child_window import ChildWindow
 
 
@@ -14,9 +15,16 @@ class window:
 		self.label = Label(self.root, text="I'm a label", bg="red", font="TimesNewRoman 15")
 		self.label2 = Label(self.root, text="I'm a label2", bg="blue", font="TimesNewRoman 15")
 		self.button = Button(self.root, text="Press Button", command=self.button_action)
+		self.button2 = Button(self.root, text="___quit___", command=self.exit)
 
 	def button_action(self):
 		print("123")
+
+
+	def exit(self):
+		choice = messagebox.askyesno("Quit", "Do you want to quit")
+		if choice:
+			self.root.destroy()
 
 	def run(self):
 		self.draw_widgets()
@@ -26,6 +34,7 @@ class window:
 		self.label.pack()
 		self.label2.pack()
 		self.button.pack()
+		self.button2.pack()
 
 	def create_child(self, width, height, title="Child", resizable=(False, False), icon=None):
 		ChildWindow(self.root, width, height, title, resizable, icon)
