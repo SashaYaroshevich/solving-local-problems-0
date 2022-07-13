@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 from child_window import ChildWindow
 from tkinter.scrolledtext import ScrolledText
+from tkinter import filedialog as fd
 
 
 class window:
@@ -13,15 +14,22 @@ class window:
 		if icon:
 			self.root.iconbitmap(icon)
 
-		self.st = ScrolledText(self.root)
+		self.st = ScrolledText(self.root, width=600, height=600)
 		self.label = Label(self.root, text="I'm a label", bg="red", font="TimesNewRoman 15")
 		self.label2 = Label(self.root, text="I'm a label2", bg="blue", font="TimesNewRoman 15")
 		self.button = Button(self.root, text="Press Button", command=self.button_action)
 		self.button2 = Button(self.root, text="___quit___", command=self.exit)
+		self.button3 = Button(self.root, text="Открыть файл", command=self.open_file)
 
 	def button_action(self):
 		print("123")
 
+	def open_file(self):
+		file_name = fd.askopenfilename(initialdir="D:/", title="FIND A FILE", )
+		self.st.insert(END, f"путь?: {file_name}\nсодержимое:")
+		if file_name:
+			with open(file_name, "r") as f:
+				self.st.insert(END, f.read())
 
 	def exit(self):
 		choice = messagebox.askyesno("Quit", "Do you want to quit")
@@ -36,6 +44,7 @@ class window:
 		self.label.pack()
 		self.label2.pack()
 		self.button.pack()
+		self.button3.pack()
 		self.button2.pack()
 		self.st.insert("1.0", "My test")
 		self.st.pack()
@@ -45,7 +54,7 @@ class window:
 
 
 if __name__ == "__main__":
-	window = window(500, 500, "Change PS")
+	window = window(800, 800, "Change PS")
 	# window.create_child(200, 100)
 
 	
