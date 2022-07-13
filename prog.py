@@ -15,9 +15,9 @@ class window:
 			self.root.iconbitmap(icon)
 
 		self.st = ScrolledText(self.root, width=600, height=600)
-		self.label = Label(self.root, text="I'm a label", bg="red", font="TimesNewRoman 15")
-		self.label2 = Label(self.root, text="I'm a label2", bg="blue", font="TimesNewRoman 15")
-		self.button = Button(self.root, text="Press Button", command=self.button_action)
+		self.label = Label(self.root, text="Сразу выберите файл connect.xml из корня Certus", bg="grey", font="TimesNewRoman 15")
+		self.label2 = Label(self.root, text="Далее выберите нужный филиал и нажмите на нужную кнопку", bg="grey", font="TimesNewRoman 15")
+		self.button = Button(self.root, text="--ЦА--", command=self.button_action)
 		self.button2 = Button(self.root, text="___quit___", command=self.exit)
 		self.button3 = Button(self.root, text="Открыть файл", command=self.open_file)
 
@@ -43,8 +43,8 @@ class window:
 	def draw_widgets(self):
 		self.label.pack()
 		self.label2.pack()
-		self.button.pack()
 		self.button3.pack()
+		self.button.pack()
 		self.button2.pack()
 		self.st.insert("1.0", "My test")
 		self.st.pack()
