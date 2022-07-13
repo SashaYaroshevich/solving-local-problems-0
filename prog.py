@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 from child_window import ChildWindow
+from tkinter.scrolledtext import ScrolledText
 
 
 class window:
@@ -11,7 +12,8 @@ class window:
 		self.root.resizable(resizable[0], resizable[1])
 		if icon:
 			self.root.iconbitmap(icon)
-		
+
+		self.st = ScrolledText(self.root)
 		self.label = Label(self.root, text="I'm a label", bg="red", font="TimesNewRoman 15")
 		self.label2 = Label(self.root, text="I'm a label2", bg="blue", font="TimesNewRoman 15")
 		self.button = Button(self.root, text="Press Button", command=self.button_action)
@@ -35,6 +37,8 @@ class window:
 		self.label2.pack()
 		self.button.pack()
 		self.button2.pack()
+		self.st.insert("1.0", "My test")
+		self.st.pack()
 
 	def create_child(self, width, height, title="Child", resizable=(False, False), icon=None):
 		ChildWindow(self.root, width, height, title, resizable, icon)
