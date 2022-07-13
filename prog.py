@@ -17,11 +17,12 @@ class window:
 		self.st = ScrolledText(self.root, width=600, height=600)
 		self.label = Label(self.root, text="Сразу выберите файл connect.xml из корня Certus", bg="grey", font="TimesNewRoman 15")
 		self.label2 = Label(self.root, text="Далее выберите нужный филиал и нажмите на нужную кнопку", bg="grey", font="TimesNewRoman 15")
-		self.button = Button(self.root, text="--ЦА--", command=self.button_action)
+		self.button = Button(self.root, text="1--ЦА--", command=self.button_action)
 		self.button2 = Button(self.root, text="___quit___", command=self.exit)
 		self.button3 = Button(self.root, text="Открыть файл", command=self.open_file)
 
 	def button_action(self):
+		choise = '<connect1 isInet="1" server="192.168.29.105" port="1792"/><!--ЦА-->'
 		print("123")
 
 	def open_file(self):
@@ -46,7 +47,7 @@ class window:
 		self.button3.pack()
 		self.button.pack()
 		self.button2.pack()
-		self.st.insert("1.0", "My test")
+		# self.st.insert("1.0", "My test")
 		self.st.pack()
 
 	def create_child(self, width, height, title="Child", resizable=(False, False), icon=None):
@@ -94,33 +95,33 @@ if __name__ == "__main__":
 #     }
 
     
-# with open("D:\\work\connect.xml", "r", encoding="utf-8") as file1:
-# 	new_file = ''
-# 	for line in file1:
-# 		if 'connect1' not in line:
-# 			new_str = line.replace("connect","connect1")
-# 			new_file += new_str
-# 		else:
-# 			new_file += line
+with open(file_name, "r", encoding="utf-8") as file1:
+	new_file = ''
+	for line in file1:
+		if 'connect1' not in line:
+			new_str = line.replace("connect","connect1")
+			new_file += new_str
+		else:
+			new_file += line
 
 
-# with open("D:\\work\connect.xml", "w", encoding="utf-8") as file2:
-# 	file2.write(new_file)	
+with open(file_name, "w", encoding="utf-8") as file2:
+	file2.write(new_file)
 
 
 # choise = spisok_dan[your_choice]
 
-# with open("D:\\work\connect.xml", "r", encoding="utf-8") as file3:
-# 	new_file2 = ''
-# 	for line in file3:
-# 		if choise in line:
-# 			new_str = line.replace("connect1","connect")
-# 			new_file2 += new_str
-# 		else:
-# 			new_file2 += line
+with open(file_name, "r", encoding="utf-8") as file3:
+	new_file2 = ''
+	for line in file3:
+		if choise in line:
+			new_str = line.replace("connect1","connect")
+			new_file2 += new_str
+		else:
+			new_file2 += line
 
-# with open("D:\\work\connect.xml", "w", encoding="utf-8") as file4:
-# 	file4.write(new_file2)
+with open(file_name, "w", encoding="utf-8") as file4:
+	file4.write(new_file2)
 
 # print(f'Готово, Переключено на {your_choice}, работайте)))')
 # exit_program = input('Нажмите Enter для выхода')
