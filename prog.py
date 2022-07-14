@@ -3,6 +3,7 @@ from tkinter import messagebox
 from child_window import ChildWindow
 from tkinter.scrolledtext import ScrolledText
 from tkinter import filedialog as fd
+import subprocess
 
 
 class window:
@@ -18,14 +19,76 @@ class window:
 		self.label = Label(self.root, text="Сразу выберите файл connect.xml из корня Certus", bg="grey", font="TimesNewRoman 15")
 		self.label2 = Label(self.root, text="Далее выберите нужный филиал и нажмите на нужную кнопку", bg="grey", font="TimesNewRoman 15")
 		self.button = Button(self.root, text="1--ЦА--", command=self.button_action)
+		self.buttonbr = Button(self.root, text="2--Брест-->", command=self.button_actionbr)
+		self.buttonpn = Button(self.root, text="3--Пинск-->", command=self.button_actionpn)
+		self.buttongr = Button(self.root, text="4--Гродно-->", command=self.button_actiongr)
+		self.buttonba = Button(self.root, text="5--Барановичи-->", command=self.button_actionba)
+		self.buttonmn1 = Button(self.root, text="6--Минск1-->", command=self.button_actionmn1)
+		self.buttonmn2 = Button(self.root, text="7--Минск2-->", command=self.button_actionmn2)
+		self.buttonsl = Button(self.root, text="8--Солигорск-->", command=self.button_actionsl)
+		self.buttonno = Button(self.root, text="9--Новополоцк-->", command=self.button_actionno)
+		self.buttongm = Button(self.root, text="10--Гомель-->", command=self.button_actiongm)
+		self.buttonmg = Button(self.root, text="11--могилёв-->", command=self.button_actionmg)
+		self.buttonmo = Button(self.root, text="12--Мозырь-->", command=self.button_actionmo)
+		self.buttonvt = Button(self.root, text="13--Витебск-->", command=self.button_actionvt)
 		self.button2 = Button(self.root, text="___quit___", command=self.exit)
 		self.button3 = Button(self.root, text="Открыть файл", command=self.open_file)
 
 	def button_action(self):
+		global choise
 		choise = '<connect1 isInet="1" server="192.168.29.105" port="1792"/><!--ЦА-->'
 		print("123")
 
+	def button_actionbr(self):
+		global choise
+		choise = '<connect1 isInet="1" server="192.168.29.104" port="1782"/><!--Брест-->'
+
+	def button_actionpn(self):
+		global choise
+		choise = '<connect1 isInet="1" server="192.168.29.104" port="1789"/><!--Пинск-->'
+
+	def button_actiongr(self):
+		global choise
+		choise = '<connect1 isInet="1" server="192.168.29.104" port="1780"/><!--Гродно-->'
+
+	def button_actionba(self):
+		global choise
+		choise = '<connect1 isInet="1" server="192.168.29.104" port="1786"/><!--Барановичи-->'
+
+	def button_actionmn1(self):
+		global choise
+		choise = '<connect1 isInet="1" server="192.168.29.103" port="1781"/><!--Минск1-->'
+
+	def button_actionmn2(self):
+		global choise
+		choise = '<connect1 isInet="1" server="192.168.29.103" port="1791"/><!--Минск2-->'
+
+	def button_actionsl(self):
+		global choise
+		choise = '<connect1 isInet="1" server="192.168.29.103" port="1788"/><!--Солигорск-->'
+
+	def button_actionno(self):
+		global choise
+		choise = '<connect1 isInet="1" server="192.168.29.103" port="1787"/><!--Новополоцк-->'
+
+	def button_actiongm(self):
+		global choise
+		choise = '<connect1 isInet="1" server="192.168.29.122" port="1785"/><!--Гомель-->'
+
+	def button_actionmg(self):
+		global choise
+		choise = '<connect1 isInet="1" server="192.168.29.122" port="1783"/><!--могилёв-->'
+
+	def button_actionmo(self):
+		global choise
+		choise = '<connect1 isInet="1" server="192.168.29.122" port="1784"/><!--Мозырь-->'
+
+	def button_actionvt(self):
+		global choise
+		choise = '<connect1 isInet="1" server="192.168.29.122" port="1790"/><!--Витебск-->'
+
 	def open_file(self):
+		global file_name
 		file_name = fd.askopenfilename(initialdir="D:/", title="FIND A FILE", )
 		self.st.insert(END, f"путь?: {file_name}\nсодержимое:")
 		if file_name:
@@ -46,6 +109,18 @@ class window:
 		self.label2.pack()
 		self.button3.pack()
 		self.button.pack()
+		self.buttonbr.pack()
+		self.buttonpn.pack()
+		self.buttongr.pack()
+		self.buttonba.pack()
+		self.buttonmn1.pack()
+		self.buttonmn2.pack()
+		self.buttonsl.pack()
+		self.buttonno.pack()
+		self.buttongm.pack()
+		self.buttonmg.pack()
+		self.buttonmo.pack()
+		self.buttonvt.pack()
 		self.button2.pack()
 		# self.st.insert("1.0", "My test")
 		self.st.pack()
@@ -61,22 +136,6 @@ if __name__ == "__main__":
 	
 	window.run()
 
-
-# print("""
-#     <-1-ЦА- ->
-#     <-2-Брест-->
-# 	<-3-Пинск-->
-# 	<-4-Гродно-->
-# 	<-5-Барановичи-->
-# 	<-6-Минск1-->
-# 	<-7-Минск2-->
-# 	<-8-Солигорск-->
-# 	<-9-Новополоцк-->
-# 	<-10-Гомель-->
-# 	<-11-могилёв-->
-# 	<-12--Мозырь-->
-# 	<-13--Витебск--> """)
-    
 # your_choice = int(input('Введите нужный филиал для переключения цифрой выше: '))
 
 # spisok_dan = {1: '<connect1 isInet="1" server="192.168.29.105" port="1792"/><!--ЦА-->',
@@ -123,5 +182,6 @@ with open(file_name, "r", encoding="utf-8") as file3:
 with open(file_name, "w", encoding="utf-8") as file4:
 	file4.write(new_file2)
 
-# print(f'Готово, Переключено на {your_choice}, работайте)))')
-# exit_program = input('Нажмите Enter для выхода')
+file_name_new = file_name[0:-11]
+file_name_new_2 = file_name_new + 'Certus.exe'
+subprocess.Popen(file_name_new_2)
