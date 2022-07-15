@@ -31,7 +31,7 @@ class window:
 		self.buttonmg = Button(self.root, text="11--могилёв-->", command=self.button_actionmg)
 		self.buttonmo = Button(self.root, text="12--Мозырь-->", command=self.button_actionmo)
 		self.buttonvt = Button(self.root, text="13--Витебск-->", command=self.button_actionvt)
-		self.button2 = Button(self.root, text="___quit___", command=self.exit)
+		self.button2 = Button(self.root, text="Применить", command=self.exit)
 		self.button3 = Button(self.root, text="Открыть файл", command=self.open_file)
 
 	def button_action(self):
@@ -96,13 +96,17 @@ class window:
 				self.st.insert(END, f.read())
 
 	def exit(self):
-		choice = messagebox.askyesno("Quit", "Do you want to quit")
+		choice = messagebox.askyesno("Программа закроется и откроется Certus")
 		if choice:
 			self.root.destroy()
 
 	def run(self):
 		self.draw_widgets()
 		self.root.mainloop()
+
+	def quit():
+		global root
+		root.quit()
 
 	def draw_widgets(self):
 		self.label.pack()
@@ -122,7 +126,6 @@ class window:
 		self.buttonmo.pack()
 		self.buttonvt.pack()
 		self.button2.pack()
-		# self.st.insert("1.0", "My test")
 		self.st.pack()
 
 	def create_child(self, width, height, title="Child", resizable=(False, False), icon=None):
@@ -136,24 +139,7 @@ if __name__ == "__main__":
 	
 	window.run()
 
-# your_choice = int(input('Введите нужный филиал для переключения цифрой выше: '))
 
-# spisok_dan = {1: '<connect1 isInet="1" server="192.168.29.105" port="1792"/><!--ЦА-->',
-# 2: '<connect1 isInet="1" server="192.168.29.104" port="1782"/><!--Брест-->',
-# 3: '<connect1 isInet="1" server="192.168.29.104" port="1789"/><!--Пинск-->',
-# 4: '<connect1 isInet="1" server="192.168.29.104" port="1780"/><!--Гродно-->',
-# 5: '<connect1 isInet="1" server="192.168.29.104" port="1786"/><!--Барановичи-->',
-# 6: '<connect1 isInet="1" server="192.168.29.103" port="1781"/><!--Минск1-->',
-# 7: '<connect1 isInet="1" server="192.168.29.103" port="1791"/><!--Минск2-->',
-# 8: '<connect1 isInet="1" server="192.168.29.103" port="1788"/><!--Солигорск-->',
-# 9: '<connect1 isInet="1" server="192.168.29.103" port="1787"/><!--Новополоцк-->',
-# 10: '<connect1 isInet="1" server="192.168.29.122" port="1785"/><!--Гомель-->',
-# 11: '<connect1 isInet="1" server="192.168.29.122" port="1783"/><!--могилёв-->',
-# 12: '<connect1 isInet="1" server="192.168.29.122" port="1784"/><!--Мозырь-->',
-# 13: '<connect1 isInet="1" server="192.168.29.122" port="1790"/><!--Витебск-->'
-#     }
-
-    
 with open(file_name, "r", encoding="utf-8") as file1:
 	new_file = ''
 	for line in file1:
