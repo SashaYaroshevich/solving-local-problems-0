@@ -7,13 +7,12 @@ import subprocess
 
 
 class window:
-	def __init__(self, width, height, title="MyWindow", resizable=(False, False), icon="@/home/sasha/projects/certus/solving-local-problems-0/psc.xbm"):
+	def __init__(self, width, height, title="MyWindow", resizable=(False, False)):
 		self.root = Tk()
 		self.root.title(title)
 		self.root.geometry(f"{width}x{height}+200+200")
 		self.root.resizable(resizable[0], resizable[1])
-		if icon:
-			self.root.iconbitmap(icon)
+
 
 		self.st = ScrolledText(self.root, width=600, height=600)
 		self.label = Label(self.root, text="Сразу выберите файл connect.xml из корня Certus", bg="grey", font="TimesNewRoman 15")
